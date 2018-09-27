@@ -1,21 +1,10 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
 
-<head>
     {% load static %}
-    <meta charset="utf-8" />
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-    <title>Profil Muhamad Abdurahman</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="{% static "profileApp/index.css" %}" />
-    <!-- Required meta tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-</head>
+    {% include "profileApp/base.html" %}
 
-<body>
-    <div id="particles-js" class="text-center main-page container-fluid mx-auto">
+    <div class="text-center main-page container-fluid mx-auto">
         <div>
             <img src="{% static "profileApp/aab.jpg" %}" class="round img-fluid" alt="Responsive image">
         </div>
