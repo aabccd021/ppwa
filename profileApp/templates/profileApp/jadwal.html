@@ -1,0 +1,27 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+    {% load static %}
+    {% include "profileApp/base.html" %}
+<body>
+    <div class="normal-page full-height">
+        <div class="col-9 form-registrasi">
+            <h1 class="normal-subtitle" style="color: #333333">Daftar Jadwal</h1>
+            <a href="{% url 'new-schedule' %}" class="btn btn-lg normal-button">buat jadwal baru</a>
+            <br>
+            {% for jadwal in jadwals %}
+                {% for attr in jadwal.values %}
+                {{ attr }}<br>
+                {% endfor %}
+            {% endfor %}
+        </div>
+
+        <div class="orange-background col-3">
+            <!-- <img src="aab.jpg" class="img-fluid" alt="Responsive image"> -->
+        </div>
+    </div>
+
+    {% include "profileApp/js.html" %}
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+    {% load static %}
+    {% include "profileApp/base.html" %}
+<body>
+    <divo class="normal-page full-height">
+        <div class="col-9 form-registrasi">
+            <h1 class="normal-subtitle" style="color: #333333">Jadwal berhasil terdaftar</h1>
+            jadwal berhasil terdaftar:
+            {{ hari }}
+            {{ tanggal }}
+            {{ jam }}
+            {{ nama }}
+            {{ tempat }}
+            {{ kategori }}
+        </div>
+
+        <div class="orange-background col-3">
+            <!-- <img src="aab.jpg" class="img-fluid" alt="Responsive image"> -->
+        </div>
+    </div>
+
+        {% include "profileApp/js.html" %}
+</body>
+
+</html>
