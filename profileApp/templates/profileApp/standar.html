@@ -6,13 +6,7 @@
 <body>
     <div class="normal-page full-height">
         <div class="col-9 form-registrasi">
-            <h1 class="normal-subtitle" style="color: #333333">Buat Jadwal Baru</h1>
-            <form action="/berhasil-jadwal/" method="post">
-                {%  csrf_token %}
-                {{ form }}
-                <input type="submit" value="Submit" class="btn btn-lg normal-button">
-            </form>
-
+            {{ text }}
         </div>
 
         <div class="orange-background col-3">
@@ -20,7 +14,7 @@
         </div>
     </div>
 
-    {% include "profileApp/js.html" %}
+        {% include "profileApp/js.html" %}
 </body>
 
 </html>

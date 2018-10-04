@@ -5,11 +5,17 @@ class JadwalForm(forms.Form):
     hari = forms.MultipleChoiceField(
         label='hari',
         choices=(
-            ("senin", "cape"),
-            ("monday", "lelah")),
+            ("senin", "senin"),
+            ("selasa", "selasa"),
+            ("rabu", "rabu"),
+            ("kamis", "kamis"),
+            ("jumat", "jumat"),
+            ("sabtu", "sabtu"),
+            ("minggu", "minggu"),
+        ),
         widget=forms.CheckboxSelectMultiple(
             attrs={
-                # 'class': 'form-control',
+                # 'class': 'form-check-input',
                 'placeholder': "Masukkan kategori"
             }))
 
@@ -20,7 +26,7 @@ class JadwalForm(forms.Form):
             format='%Y-%m-%d',
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Pilih tanggal'
+                'placeholder': 'yyyy-mm-dd'
             }))
 
     jam = forms.TimeField(
@@ -29,7 +35,7 @@ class JadwalForm(forms.Form):
             format='%I:%M',
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Pilih waktu'
+                'placeholder': 'hh:mm'
             }))
 
     nama = forms.CharField(
@@ -53,8 +59,8 @@ class JadwalForm(forms.Form):
     kategori = forms.MultipleChoiceField(
         label='Kategori',
         choices=(
-            ("kategoria", "catA"),
-            ("kategorin", "catN")),
+            ("kuliah", "kuliah"),
+            ("non-kuliah", "non-kuliah")),
         widget=forms.CheckboxSelectMultiple(
             attrs={
                 # 'class': 'form-control',

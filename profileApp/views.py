@@ -40,9 +40,13 @@ def schedule_post(request):
         html = 'profileApp/jadwal_berhasil.html'
         return render(request, html, response)
     else:
-        return HttpResponseRedirect('')
+        return render(request, 'profileApp/standar.html', {'text':'input tidak valid'})
 
 def jadwal(request):
     jadwals = Schedule.objects.all().values()
     response['jadwals'] = jadwals
     return render (request, 'profileApp/jadwal.html', response)
+
+def schedule_delete(request):
+    Schedule.objects.all().delete()
+    return render(request, 'profileApp/standar.html', {'text':'semua jadwal berhasil dihapus'})

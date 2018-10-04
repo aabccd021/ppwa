@@ -4,16 +4,19 @@
     {% load static %}
     {% include "profileApp/base.html" %}
 <body>
-    <divo class="normal-page full-height">
-        <div class="col-9 form-registrasi">
+    <div class="normal-page full-height">
+        <div class="col-9">
             <h1 class="normal-subtitle" style="color: #333333">Jadwal berhasil terdaftar</h1>
-            jadwal berhasil terdaftar:
-            {{ hari }}
-            {{ tanggal }}
-            {{ jam }}
-            {{ nama }}
-            {{ tempat }}
-            {{ kategori }}
+            <h2> jadwal berhasil terdaftar:</h2>
+            <br><br>
+
+            <h2>{{ jadwal.nama }}</h2><br>
+            {{ hari }}, {{ tanggal }}<br>
+            Pukul {{ jam }}<br>
+            Tempat : {{ tempat }}<br>
+            Kategori : {{ kategori }}
+
+            <a href="{% url 'jadwal' %}" class="btn btn-lg normal-button">Lihat semua jadwal</a>
         </div>
 
         <div class="orange-background col-3">

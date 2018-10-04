@@ -8,15 +8,25 @@
     <div class="col-9 form-registrasi">
         <h1 class="normal-subtitle" style="color: #333333">Daftar Jadwal</h1>
         <a href="{% url 'new-schedule' %}" class="btn btn-lg normal-button">buat jadwal baru</a>
+        <a href="{% url 'schedule-delete' %}" class="btn btn-lg normal-button">hapus jadwal</a>
+        <br>
+        <br>
         <br>
         {% if jadwals|length > 0 %}
             {% for jadwal in jadwals %}
-                {% for attr in jadwal.values %}
-                    {{ attr }}<br>
-                {% endfor %}
+                <br>
+                <br>
+                <br>
+                <h2>{{ jadwal.nama }}</h2><br>
+                {{ hari }}, {{ tanggal }}<br>
+                Pukul {{ jam }}<br>
+                Tempat : {{ tempat }}<br>
+                Kategori : {{ kategori }}
+
+
             {% endfor %}
         {% else %}
-            Belum ada jadwal weh
+            Belum ada jadwal
         {% endif %}
     </div>
 
