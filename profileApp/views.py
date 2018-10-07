@@ -1,6 +1,7 @@
 import requests
 from django.shortcuts import render
 
+from profileApp.et import nani
 from profileApp.models import Schedule
 from .forms import JadwalForm, ArenForm
 
@@ -65,18 +66,32 @@ def aren(request):
 
 def aren_hasil(request):
     code = request.POST['code']
-    # r = requests.get("http://aren-kw.herokuap.com")
-    r = requests.post('http://aren-kw.herokuapp.com/omae', json={'code':code})
-    # r = requests.post('http://localhost:8080/omae', json={'code':code})
-    # r = requests.post('http://localhost:8080/omae', json={'code':code})
-    res = r.content
-    print(res)
-    # r = requests.post('http://aren-kw.herokuap.com/omae', json={'code': 'nani'})
-    # res = r.content
-    # print(res)
-    # r = requests.post("http://aren-kw.herokuap.com/omae", json={'code': 'nani'})
-    # res = r.content
-    # print(res)
-    res = res.decode().split("\n")
-    response["text"] = res
+    # r = requests.post('http://aren-kw.herokuapp.com/omae', json={'code':code})
+    r = requests.post('http://localhost:8080/omae', json={'code': code})
+    res = r.content.decode()
+    import json
+    res = json.loads(res)
+    print(json.dumps(res, sort_keys=True, indent=4))
+    cases = res.get("cases")
+    print(cases)
+    total = len(cases)
+    counter = 0
+    for a in cases :
+        a["duration"] = a.get("duration")/1000000
+        if a["pass"]:
+            counter+=1
+
+
+    response["cases"] = cases
+    response["trueAns"] = counter
+    response["total"] = total
     return render(request, 'profileApp/aren_s.html', response)
+
+def sl(request):
+    text = nani()
+    return render(request, 'profileApp/standar.html', {'text':text})
+
+
+
+
+    # sys.stdout.writelines(diff)

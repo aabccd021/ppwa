@@ -11,5 +11,6 @@ urlpatterns = [
 	path('hapus-jadwal/',views.schedule_delete, name='schedule-delete'),
 	path('aren/',views.aren, name='aren'),
 	path('aren-hasil/',views.aren_hasil, name='aren-hasil'),
+	path('sl/',views.sl, name='sl'),
 	path('',views.index, name='index'),
 ]

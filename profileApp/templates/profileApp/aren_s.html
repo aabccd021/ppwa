@@ -6,11 +6,35 @@
 <body>
 <div class="normal-page full-height">
     <div class="col-9">
-        <h1 class="normal-subtitle" style="color: #333333">Jadwal berhasil terdaftar</h1>
-        {% for i in text %}
-            {{ i }}<br>
-        {% endfor %}
+        <h1 class="normal-subtitle" style="color: #333333">Hasil grading</h1>
+        <br>
+        <h3>SCORE : {{ trueAns }} / {{ total }}</h3>
+        <br>
+        {% for case in cases %}
+            <br>
+            {% if case.timeout == True %}
+                <h4>Testcase #{{ forloop.counter }}</h4>
+                <h4>Time Limit Exceeded</h4>
+            {% else %}
+                <h4>Testcase #{{ forloop.counter }}
+                    {% if case.pass == True %}
+                        <span class="badge badge-success">Passed</span>
+                    {% else %}
+                        <span class="badge badge-danger">Failed</span>
+                    {% endif %}
+                </h4>
+            {% endif %}
+                Time : {{ case.duration }} ms
+                <br><br>
+                <b>Problem</b>: <br> {{ case.problem|linebreaksbr }}
+                <br><br>
+                <b>Answer</b>: <br> {{ case.answer|linebreaksbr }}
+                <br><br>
+                <b>Expected</b>: <br> {{ case.expected|linebreaksbr }}
+                <br>
+                <br>
 
+        {% endfor %}
     </div>
 
     <div class="orange-background col-3">
@@ -20,5 +44,5 @@
 
 {% include "profileApp/js.html" %}
 </body>
-
 </html>
+
