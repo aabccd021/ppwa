@@ -1,6 +1,7 @@
 import requests
 from django.shortcuts import render
 
+from praktikum.settings import PRODUCTION
 from profileApp.et import nani
 from profileApp.models import Schedule
 from .forms import JadwalForm, ArenForm
@@ -66,8 +67,10 @@ def aren(request):
 
 def aren_hasil(request):
     code = request.POST['code']
-    # r = requests.post('http://aren-kw.herokuapp.com/omae', json={'code':code})
-    r = requests.post('http://localhost:8080/omae', json={'code': code})
+    if PRODUCTION:
+        r = requests.post('http://aren-kw.herokuapp.com/omae', json={'code':code})
+    else:
+        r = requests.post('http://localhost:8080/omae', json={'code': code})
     res = r.content.decode()
     import json
     res = json.loads(res)
