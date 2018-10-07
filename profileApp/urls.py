@@ -9,5 +9,7 @@ urlpatterns = [
 	path('jadwal-baru/',views.new_schedule, name='new-schedule'),
 	path('berhasil-jadwal/',views.schedule_post, name='success'),
 	path('hapus-jadwal/',views.schedule_delete, name='schedule-delete'),
+	path('aren/',views.aren, name='aren'),
+	path('aren-hasil/',views.aren_hasil, name='aren-hasil'),
 	path('',views.index, name='index'),
 ]

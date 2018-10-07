@@ -1,6 +1,18 @@
 from django import forms
 
 
+class ArenForm(forms.Form):
+    code = forms.CharField(
+        label='code',
+        widget=forms.Textarea(
+            attrs={
+                'class': 'form-control',
+                'rows': '20'
+            }
+        )
+    )
+
+
 class JadwalForm(forms.Form):
     hari = forms.MultipleChoiceField(
         label='hari',
